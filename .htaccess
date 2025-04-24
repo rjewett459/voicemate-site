@@ -1,9 +1,8 @@
-# 📄 Set inbox.html as the default page
+# Prefer inbox.html over index.html
 DirectoryIndex inbox.html index.html
 
-# 🔒 Force HTTPS redirect if not already using it
+# Force HTTPS
 RewriteEngine on
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-SSL} !on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
