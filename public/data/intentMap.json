@@ -1,0 +1,374 @@
+{
+  "book_time": {
+    "label": "Book a Time",
+    "ctaLabel": "📅 Schedule Now",
+    "action": "open_scheduling_link",
+    "description": "User wants to schedule a meeting or call",
+    "category": "Scheduling",
+    "priority": 1
+  },
+  "reschedule_appointment": {
+    "label": "Reschedule Appointment",
+    "ctaLabel": "🔁 Reschedule",
+    "action": "open_reschedule",
+    "description": "User wants to change a scheduled time",
+    "category": "Scheduling"
+  },
+  "request_callback": {
+    "label": "Request a Call Back",
+    "ctaLabel": "📞 Call Me Back",
+    "action": "schedule_callback",
+    "description": "User wants someone to call them back",
+    "category": "Scheduling"
+  },
+  "save_for_later": {
+    "label": "Save for Later",
+    "ctaLabel": "📌 Save This",
+    "action": "vault_message",
+    "description": "User wants to revisit this message later",
+    "category": "Engagement"
+  },
+  "time_lock": {
+    "label": "Time-Lock Until…",
+    "ctaLabel": "⏳ Lock Until Later",
+    "action": "set_time_lock",
+    "description": "User wants message delayed until a set time",
+    "category": "Scheduling"
+  },
+  "remind_me_later": {
+    "label": "Remind Me Later",
+    "ctaLabel": "🔔 Remind Me",
+    "action": "set_reminder",
+    "description": "User wants to be reminded of this later",
+    "category": "Scheduling"
+  },
+  "follow_up_next_week": {
+    "label": "Follow Up Next Week",
+    "ctaLabel": "📆 Follow Up Later",
+    "action": "schedule_followup",
+    "description": "User wants a future follow-up",
+    "category": "Scheduling"
+  },
+  "ask_question": {
+    "label": "Ask a Question",
+    "ctaLabel": "💬 Ask Me Something",
+    "action": "open_reply_input",
+    "description": "User wants to ask something specific",
+    "category": "Response"
+  },
+  "send_reply": {
+    "label": "Send a Reply",
+    "ctaLabel": "↩️ Reply",
+    "action": "send_reply",
+    "description": "User wants to respond to the message",
+    "category": "Response"
+  },
+  "start_conversation": {
+    "label": "Start a Conversation",
+    "ctaLabel": "💭 Start Chat",
+    "action": "start_chat",
+    "description": "User wants to begin a dialogue",
+    "category": "Response"
+  },
+  "continue_thread": {
+    "label": "Continue This Thread",
+    "ctaLabel": "🔄 Continue",
+    "action": "continue_thread",
+    "description": "User wants to continue the conversation",
+    "category": "Response"
+  },
+  "give_feedback": {
+    "label": "Give Feedback",
+    "ctaLabel": "📝 Feedback",
+    "action": "open_feedback_form",
+    "description": "User wants to leave a comment or review",
+    "category": "Engagement"
+  },
+  "acknowledge": {
+    "label": "Acknowledge / Got It",
+    "ctaLabel": "✅ Got It",
+    "action": "acknowledge_receipt",
+    "description": "User wants to confirm receipt",
+    "category": "Engagement"
+  },
+  "share_message": {
+    "label": "Share This Message",
+    "ctaLabel": "🔗 Share",
+    "action": "share_packet",
+    "description": "User wants to forward or repost message",
+    "category": "Engagement"
+  },
+  "reply_with_voice": {
+    "label": "Reply with Voice",
+    "ctaLabel": "🎙️ Voice Reply",
+    "action": "start_voice_reply",
+    "description": "User prefers replying with voice",
+    "category": "Response"
+  },
+  "learn_more": {
+    "label": "Learn More",
+    "ctaLabel": "📘 Learn More",
+    "action": "open_more_info",
+    "description": "User wants more details",
+    "category": "Information"
+  },
+  "explain_this": {
+    "label": "Explain This",
+    "ctaLabel": "❓ Explain",
+    "action": "open_explanation",
+    "description": "User wants clarification",
+    "category": "Information"
+  },
+  "view_next_step": {
+    "label": "View Next Step",
+    "ctaLabel": "➡️ Next Step",
+    "action": "show_next_step",
+    "description": "User wants to proceed",
+    "category": "Information"
+  },
+  "read_transcript": {
+    "label": "Read Transcript",
+    "ctaLabel": "📝 Transcript",
+    "action": "show_transcript",
+    "description": "User prefers text version",
+    "category": "Information"
+  },
+  "watch_tutorial": {
+    "label": "Watch Tutorial",
+    "ctaLabel": "▶️ Watch How",
+    "action": "play_tutorial",
+    "description": "User wants an instructional video",
+    "category": "Information"
+  },
+  "open_file": {
+    "label": "Open File / Document",
+    "ctaLabel": "📂 Open File",
+    "action": "open_file_link",
+    "description": "User wants to access a document",
+    "category": "Information"
+  },
+  "hear_related": {
+    "label": "Hear Related Message",
+    "ctaLabel": "🎧 Hear More",
+    "action": "play_related_audio",
+    "description": "User wants to listen to related content",
+    "category": "Information"
+  },
+  "get_quote": {
+    "label": "Get a Quote",
+    "ctaLabel": "💰 Get Quote",
+    "action": "show_pricing",
+    "description": "User wants a cost estimate",
+    "category": "Sales"
+  },
+  "request_pricing": {
+    "label": "Request Pricing",
+    "ctaLabel": "📊 Request Pricing",
+    "action": "open_pricing_form",
+    "description": "User wants to see pricing tiers",
+    "category": "Sales"
+  },
+  "talk_to_rep": {
+    "label": "Talk to a Rep",
+    "ctaLabel": "👥 Contact Sales",
+    "action": "contact_sales",
+    "description": "User wants to speak to a person",
+    "category": "Sales"
+  },
+  "see_plans": {
+    "label": "See Available Plans",
+    "ctaLabel": "📄 View Plans",
+    "action": "open_plan_list",
+    "description": "User wants to browse options",
+    "category": "Sales"
+  },
+  "schedule_consultation": {
+    "label": "Schedule a Consultation",
+    "ctaLabel": "📞 Book Call",
+    "action": "open_consult_form",
+    "description": "User wants expert guidance",
+    "category": "Sales"
+  },
+  "join_waitlist": {
+    "label": "Join Waitlist",
+    "ctaLabel": "🕒 Join Waitlist",
+    "action": "add_to_waitlist",
+    "description": "User wants to reserve access",
+    "category": "Sales"
+  },
+  "claim_offer": {
+    "label": "Claim Offer",
+    "ctaLabel": "🎁 Claim Now",
+    "action": "claim_offer",
+    "description": "User wants to redeem a deal",
+    "category": "Sales"
+  },
+  "refer_friend": {
+    "label": "Refer a Friend",
+    "ctaLabel": "📣 Refer Now",
+    "action": "open_referral_link",
+    "description": "User wants to refer someone",
+    "category": "Referral"
+  },
+  "use_discount": {
+    "label": "Use Discount",
+    "ctaLabel": "🏷️ Apply Discount",
+    "action": "apply_coupon",
+    "description": "User wants to use a promo code",
+    "category": "Referral"
+  },
+  "claim_reward": {
+    "label": "Claim My Reward",
+    "ctaLabel": "🎉 Claim Reward",
+    "action": "claim_referral_reward",
+    "description": "User wants to receive incentive",
+    "category": "Referral"
+  },
+  "redeem_bonus": {
+    "label": "Redeem Bonus",
+    "ctaLabel": "🎊 Redeem Bonus",
+    "action": "redeem_bonus",
+    "description": "User wants to activate incentive",
+    "category": "Referral"
+  },
+  "enter_giveaway": {
+    "label": "Enter Giveaway",
+    "ctaLabel": "🎯 Enter Now",
+    "action": "enter_giveaway",
+    "description": "User wants to join contest",
+    "category": "Referral"
+  },
+  "ai_reply": {
+    "label": "Let AI Reply for Me",
+    "ctaLabel": "🤖 Auto-Reply",
+    "action": "let_ai_reply",
+    "description": "User wants assistant to reply",
+    "category": "AI"
+  },
+  "summarize": {
+    "label": "Summarize This",
+    "ctaLabel": "🧠 TL;DR",
+    "action": "summarize_message",
+    "description": "User wants a summary",
+    "category": "AI"
+  },
+  "categorize": {
+    "label": "Categorize This",
+    "ctaLabel": "🏷️ Tag Message",
+    "action": "categorize_content",
+    "description": "User wants AI to label the message",
+    "category": "AI"
+  },
+  "smart_delay": {
+    "label": "Set Smart Delay",
+    "ctaLabel": "🕓 Smart Delay",
+    "action": "set_ai_delay",
+    "description": "User wants reply to auto-send later",
+    "category": "AI"
+  },
+  "archive": {
+    "label": "Archive / Vault This",
+    "ctaLabel": "🗂️ Save to Vault",
+    "action": "save_to_vault",
+    "description": "User wants to save the message privately",
+    "category": "AI"
+  },
+  "send_updates": {
+    "label": "Send Me Updates",
+    "ctaLabel": "📢 Get Updates",
+    "action": "subscribe_updates",
+    "description": "User wants future updates",
+    "category": "Follow-Up"
+  },
+  "track_request": {
+    "label": "Track Request",
+    "ctaLabel": "📍 Track This",
+    "action": "track_status",
+    "description": "User wants to follow progress",
+    "category": "Follow-Up"
+  },
+  "send_another": {
+    "label": "Send Another One",
+    "ctaLabel": "📤 Send More",
+    "action": "send_another_packet",
+    "description": "User wants to follow up",
+    "category": "Follow-Up"
+  },
+  "unlock_more": {
+    "label": "Unlock More Options",
+    "ctaLabel": "🔓 See More",
+    "action": "reveal_more_ctas",
+    "description": "User wants additional CTAs",
+    "category": "Follow-Up"
+  },
+  "like_favorite": {
+    "label": "Like / Star / Favorite",
+    "ctaLabel": "⭐ Like This",
+    "action": "star_packet",
+    "description": "User wants to show appreciation",
+    "category": "Engagement"
+  },
+  "react_emoji": {
+    "label": "React with Emoji",
+    "ctaLabel": "😎 React",
+    "action": "send_emoji_response",
+    "description": "User wants to react playfully",
+    "category": "Engagement"
+  },
+  "send_appreciation": {
+    "label": "Send Appreciation",
+    "ctaLabel": "🙏 Thanks!",
+    "action": "send_thanks",
+    "description": "User wants to say thank you",
+    "category": "Engagement"
+  },
+  "express_interest": {
+    "label": "Express Interest",
+    "ctaLabel": "👍 I’m Interested",
+    "action": "mark_interested",
+    "description": "User wants to engage further",
+    "category": "Engagement"
+  },
+  "confirm_participation": {
+    "label": "Confirm Participation",
+    "ctaLabel": "✅ I’m In",
+    "action": "confirm_rsvp",
+    "description": "User confirms involvement",
+    "category": "Engagement"
+  },
+  "unsubscribe": {
+    "label": "Opt Out / Unsubscribe",
+    "ctaLabel": "🚫 Unsubscribe",
+    "action": "unsubscribe_user",
+    "description": "User wants to stop future contact",
+    "category": "Engagement"
+  },
+  "escalate_to_human": {
+    "label": "Escalate to Human",
+    "ctaLabel": "👤 Talk to a Person",
+    "action": "escalate_to_human",
+    "description": "User wants to speak with a real person",
+    "category": "Routing"
+  },
+  "forward_to_other": {
+    "label": "Forward to Someone Else",
+    "ctaLabel": "📨 Forward",
+    "action": "forward_message",
+    "description": "User wants to reroute the message",
+    "category": "Routing"
+  },
+  "route_to_inbox": {
+    "label": "Route to Business Inbox",
+    "ctaLabel": "📥 Send to Brand",
+    "action": "route_to_business_inbox",
+    "description": "User wants to escalate to brand team",
+    "category": "Routing"
+  },
+  "auto_reply": {
+    "label": "Auto-Reply on My Behalf",
+    "ctaLabel": "🤖 Auto-Reply",
+    "action": "enable_auto_reply",
+    "description": "User wants AI to handle this thread",
+    "category": "Routing"
+  }
+}

@@ -1,0 +1,11 @@
+--- New Request ---
+Raw Input: {"transcript":{}}
+--- New Request ---
+Raw Input: {"transcript":{}}
+[23-Apr-2025 21:07:16 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/voicbhhf/public_html/get-intent.php:25
+Stack trace:
+#0 /home/voicbhhf/public_html/get-intent.php(25): trim()
+#1 {main}
+  thrown in /home/voicbhhf/public_html/get-intent.php on line 25
+--- New Request ---
+Raw Input: {"transcript":"hey Jimmy I was thinking I wanted to know in October  at the end of October if you'd like to come down to Arizona  and hang out with me for my birthday  let me know what you think and I can send you an itinerary "}

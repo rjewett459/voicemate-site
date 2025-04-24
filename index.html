@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VoiceMate ID – Reclaim Your Voice</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* ---------- Base layout ---------- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, #0c0f13, #0a0c10);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    header {
+      padding: 4rem 2rem 2rem;
+      max-width: 800px;
+    }
+
+    /* ---------- Mobile‑first header image ---------- */
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 0 2rem;
+    }
+
+    /* ---------- Typography & blocks ---------- */
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(to right, #ffffff, #aaaaff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      background: #ff4d4f;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff4d4f66;
+      transition: 0.3s;
+    }
+
+    .cta:hover {
+      background: #ff1a1f;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .feature {
+      background: #1a1d22;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* ---------- Modal pop‑up ---------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.75);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      position: relative;
+      background: #1a1d22;
+      padding: 2rem 1.75rem;
+      border-radius: 16px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+
+    .modal form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .modal input {
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .modal button[type="submit"] {
+      margin-top: 0.5rem;
+      padding: 0.85rem 1rem;
+      font-size: 1.05rem;
+      background: #ff4d4f;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .modal button[type="submit"]:hover {
+      background: #ff1a1f;
+    }
+
+    .close {
+      position: absolute;
+      top: 0.75rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      font-size: 1.6rem;
+      line-height: 1;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ---------- Enhancements ≥ 768 px ---------- */
+    @media (min-width: 768px) {
+      header img {
+        max-width: 840px;
+        margin: 0 auto 4rem;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      .features {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="assets/img/VoiceMate_logo_horiz_dark.png" alt="VoiceMate ID Logo" />
+    <p>
+      The next evolution of human connection.<br />
+      Not a phone number. Not a handle.<br />
+      A sovereign voice identity for the age of AI.
+    </p>
+    <button class="cta" onclick="openModal()">🎤 Join our waitlist!</button>
+  </header>
+
+  <section>
+    <div class="features">
+      <div class="feature">
+        <h3>🧠 Intent‑First</h3>
+        <p>Your VoiceMate ID knows when you're available—and when your AI assistant should reply instead.</p>
+      </div>
+      <div class="feature">
+        <h3>🎙️ Voice‑Driven</h3>
+        <p>Communicate naturally with async voice Pulses that carry emotion, presence, and context.</p>
+      </div>
+      <div class="feature">
+        <h3>🔒 Privacy‑Built</h3>
+        <p>You control who hears from you, when, and how. No spam, no noise—just meaningful connection.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What if your voice was your ID?</h2>
+    <p style="margin-top:1rem;color:#aaa;">
+      Imagine a world where your digital identity isn’t just a login—it’s a living, breathing voice.<br />
+      Where conversations don’t require apps, and you never have to give out your number again.
+    </p>
+    <p style="margin-top:2rem;"><em>Demo video coming soon</em></p>
+  </section>
+
+  <footer>
+    &copy; 2025 VoiceMate ID. Designed for humans.<br />
+    <a href="mailto:rick@voicemate.id" style="color:#666;">rick@voicemate.id</a>
+  </footer>
+
+  <!-- ---------- Modal markup ---------- -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="close" aria-label="Close" onclick="closeModal()">&times;</button>
+      <h2>Get on the list</h2>
+      <form id="signupForm">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="tel" name="phone" placeholder="Phone" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <button type="submit">Notify me</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ---------- Modal / form script ---------- -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  const overlay = document.getElementById('modalOverlay');
+
+  function openModal() {
+    overlay.classList.add('open');
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+  }
+
+  document.getElementById('signupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+
+    try {
+      await fetch("https://formspree.io/f/meoabdav", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      // Show thank you message
+      e.target.innerHTML = '<p style="margin:1rem 0;">🎉 Thanks! We’ll keep you posted.</p>';
+
+      // BRIGHTER CONFETTI BLAST 💥
+      confetti({
+        particleCount: 250,
+        spread: 120,
+        startVelocity: 35,
+        scalar: 1.2,
+        origin: { y: 0.6 },
+        colors: ['#ffffff', '#ff4d4f', '#00d4ff', '#ffe600', '#9d4dff']
+      });
+
+    } catch (err) {
+      alert("Sorry—something went wrong. Please try again later.");
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

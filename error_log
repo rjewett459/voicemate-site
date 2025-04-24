@@ -1,0 +1,16 @@
+[23-Apr-2025 20:55:17 UTC] PHP Warning:  Array to string conversion in /home/voicbhhf/public_html/get-intent.php on line 19
+[23-Apr-2025 20:57:48 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/voicbhhf/public_html/get-intent.php:17
+Stack trace:
+#0 /home/voicbhhf/public_html/get-intent.php(17): trim()
+#1 {main}
+  thrown in /home/voicbhhf/public_html/get-intent.php on line 17
+[23-Apr-2025 21:00:32 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/voicbhhf/public_html/get-intent.php:13
+Stack trace:
+#0 /home/voicbhhf/public_html/get-intent.php(13): trim()
+#1 {main}
+  thrown in /home/voicbhhf/public_html/get-intent.php on line 13
+[23-Apr-2025 21:04:00 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/voicbhhf/public_html/get-intent.php:24
+Stack trace:
+#0 /home/voicbhhf/public_html/get-intent.php(24): trim()
+#1 {main}
+  thrown in /home/voicbhhf/public_html/get-intent.php on line 24

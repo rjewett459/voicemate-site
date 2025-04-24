@@ -1,0 +1,8 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^voicemate\.id$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.voicemate\.id$
+RewriteRule ^/?$ "https\:\/\/voicemate\.id\/" [R=301,L]
+

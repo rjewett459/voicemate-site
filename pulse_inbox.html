@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VoiceMate Inbox</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0c0f13;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    #orb {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border-radius: 50%;
+      margin: 1rem auto;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    }
+
+    #orb.listening {
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    #status, #timer {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 500px;
+      height: 100px;
+      margin-top: 1rem;
+      display: block;
+      font-size: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+      border: none;
+    }
+
+    audio {
+      display: block;
+      margin: 1rem auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎤 Tap the Orb to Start / Stop Recording</h2>
+  <div id="orb" title="Tap to Record"></div>
+  <div id="status">Idle</div>
+  <div id="timer">00:00</div>
+  <textarea id="transcript" placeholder="Your transcript will appear here..."></textarea>
+  <audio id="audio" controls></audio>
+
+  <script>
+    let mediaRecorder;
+    let isRecording = false;
+    let audioChunks = [];
+    let startTime;
+    let timerInterval;
+    let recognition;
+
+    const orb = document.getElementById("orb");
+    const status = document.getElementById("status");
+    const timer = document.getElementById("timer");
+    const transcript = document.getElementById("transcript");
+    const audio = document.getElementById("audio");
+
+    function formatTime(ms) {
+      const totalSeconds = Math.floor(ms / 1000);
+      const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+      const seconds = String(totalSeconds % 60).padStart(2, '0');
+      return `${minutes}:${seconds}`;
+    }
+
+    function updateTimer() {
+      const elapsed = Date.now() - startTime;
+      timer.textContent = formatTime(elapsed);
+    }
+
+    async function toggleRecording() {
+      if (!isRecording) {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+        mediaRecorder.onstop = () => {
+          const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+          audio.src = URL.createObjectURL(audioBlob);
+
+          const formData = new FormData();
+          formData.append('audio', audioBlob, 'recording.webm');
+          formData.append('message', transcript.value);
+
+          fetch('pulse-submit.php', {
+            method: 'POST',
+            body: formData
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            status.textContent = data.message || 'Pulse sent!';
+          })
+          .catch(err => {
+            console.error(err);
+            status.textContent = 'Failed to send pulse.';
+          });
+        };
+
+        mediaRecorder.start();
+        status.textContent = "Recording...";
+        startTime = Date.now();
+        timerInterval = setInterval(updateTimer, 500);
+        isRecording = true;
+        orb.classList.add("listening");
+
+        // Start speech recognition
+        recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.onresult = (event) => {
+          let result = '';
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            result += event.results[i][0].transcript;
+          }
+          transcript.value = result;
+        };
+        recognition.start();
+      } else {
+        mediaRecorder.stop();
+        clearInterval(timerInterval);
+        recognition.stop();
+        status.textContent = "Stopped";
+        isRecording = false;
+        orb.classList.remove("listening");
+      }
+    }
+
+    orb.addEventListener("click", toggleRecording);
+  </script>
+</body>
+</html>
