@@ -7,15 +7,15 @@ import CTABar from "./CTABar";
 
 const SmartPacketViewer = ({ transcript, audioUrl }) => {
   const [intentMap, setIntentMap] = useState({});
-  const [inferredIntent, setInferredIntent] = useState(null);
+  const [intents, setIntents] = useState([]);
 
   useEffect(() => {
     async function init() {
       const map = await loadIntentMap();
       setIntentMap(map);
 
-      const intent = inferIntent(transcript);
-      setInferredIntent(intent);
+      const topIntents = inferIntent(transcript);
+      setIntents(topIntents);
     }
 
     init();
@@ -26,9 +26,7 @@ const SmartPacketViewer = ({ transcript, audioUrl }) => {
       <audio controls src={audioUrl} />
       <p className="transcript">{transcript}</p>
 
-      {inferredIntent && intentMap[inferredIntent] && (
-        <CTABar message={transcript} />
-      )}
+      <CTABar intents={intents} intentMap={intentMap} />
     </div>
   );
 };
