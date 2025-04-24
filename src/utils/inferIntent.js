@@ -16,22 +16,24 @@ const intentKeywords = {
 };
 
 /**
- * Infer the best-matching intent from a given user message.
- * @param {string} message - The raw user message text
- * @returns {string|null} - The best-matching intent key or null
+ * Returns an array of the top 3 matching intent keys.
+ * @param {string} message
+ * @returns {string[]} Array of intent keys
  */
 export function inferIntent(message) {
-  if (!message || typeof message !== "string") return null;
+  if (!message || typeof message !== "string") return [];
 
   const lower = message.toLowerCase();
+  const matches = [];
 
   for (const [intent, keywords] of Object.entries(intentKeywords)) {
     for (const keyword of keywords) {
       if (lower.includes(keyword)) {
-        return intent;
+        matches.push(intent);
+        break; // avoid duplicate counting for same intent
       }
     }
   }
 
-  return null; // fallback: no match
+  return matches.slice(0, 3); // Return up to 3 matches
 }
