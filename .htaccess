@@ -1,8 +1,9 @@
+# 📄 Set inbox.html as the default page
+DirectoryIndex inbox.html index.html
 
+# 🔒 Force HTTPS redirect if not already using it
 RewriteEngine on
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-SSL} !on
-RewriteCond %{HTTP_HOST} ^voicemate\.id$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.voicemate\.id$
-RewriteRule ^/?$ "https\:\/\/voicemate\.id\/" [R=301,L]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
