@@ -1,28 +1,34 @@
-import React from "react";
-import CTABar from "@/components/CTABar";
+// src/components/SmartPacketViewer.jsx
 
-const SmartPacketViewer = ({ transcript, audioUrl, inferredIntents }) => {
-  const handleIntentClick = (action) => {
-    if (action === "open_scheduling_link") {
-      window.open("https://calendly.com/rick/15min", "_blank");
-    } else if (action === "open_reply_input") {
-      alert("Reply input would open here.");
-    } else {
-      console.log("Triggered action:", action);
+import React, { useEffect, useState } from "react";
+import { inferIntent } from "@/utils/inferIntent";
+import { loadIntentMap } from "@/utils/loadIntentMap";
+import CTABar from "./CTABar";
+
+const SmartPacketViewer = ({ transcript, audioUrl }) => {
+  const [intentMap, setIntentMap] = useState({});
+  const [inferredIntent, setInferredIntent] = useState(null);
+
+  useEffect(() => {
+    async function init() {
+      const map = await loadIntentMap();
+      setIntentMap(map);
+
+      const intent = inferIntent(transcript);
+      setInferredIntent(intent);
     }
-  };
+
+    init();
+  }, [transcript]);
 
   return (
-    <div className="w-full max-w-xl mx-auto px-4 py-6 space-y-6 bg-white dark:bg-black rounded-xl shadow-xl">
-      <audio controls src={audioUrl} className="w-full rounded-md" />
-      <div className="text-lg leading-relaxed text-gray-800 dark:text-gray-100">
-        {transcript}
-      </div>
+    <div className="smart-packet">
+      <audio controls src={audioUrl} />
+      <p className="transcript">{transcript}</p>
 
-      <CTABar
-        inferredIntents={inferredIntents}
-        onIntentClick={handleIntentClick}
-      />
+      {inferredIntent && intentMap[inferredIntent] && (
+        <CTABar message={transcript} />
+      )}
     </div>
   );
 };
